@@ -1,6 +1,5 @@
 f = open("9/input.txt", "r")
 li = list(f.readline().strip())
-li = list("2333133121414131402")
 driveMap = []
 idnum = 0
 for i in range(len(li)):
