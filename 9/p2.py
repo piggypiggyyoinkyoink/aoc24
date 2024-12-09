@@ -7,19 +7,19 @@ for i in range(len(li)-1, 0, -2):
     num = int(li[i])
     for j in range(1, i, 2):
         if int(li[j]) >= num:
-            print(i//2, j)
-            movements.append(y:=[(i-2*len(list(filter(None,[m[1] <= (i+1)//2 for m in movements]))))//2, (j+1)//2,i-len(list(filter(None,[m[1] <= (i+1)//2 for m in movements])))])
-            print(movements)
+            #print(i//2, j)
+            movements.append(y:=[(i-2*len(list(filter(None,[m[1] <= (i+1)//2 for m in movements]))))//2, (j+1)//2])
+            #print(movements)
             for mov in movements:
                 if  mov[1] >= (j+1)//2 and mov[1] < (i+1)//2 and mov != y:
                     mov[1] += 1
-            print(li)
+            #print(li)
             x=int(li.pop(j))
             li.insert(j, "0")
             li.insert(j+1, str(x-num))
             li.insert(j+1, str(num))
-            print("i=",i)
-            print(li)
+            #print("i=",i)
+            #print(li)
             if i == len(li):
                 try:
                     a = int(li.pop(i+2))
@@ -30,7 +30,7 @@ for i in range(len(li)-1, 0, -2):
                     li.pop(i+3)
                 except:pass
             else:
-                print(li)
+                #print(li)
                 try:
                     d = li.pop(i+1)
                     e = li.pop(i+1)
@@ -43,6 +43,9 @@ print(len(li))
 
 driveMap = []
 idnum = 0
+print(li)
+print(movements)
+
 for i in range(len(li)):
     if (i % 2) == 0:
         v = False
@@ -56,7 +59,9 @@ for i in range(len(li)):
             for j in range(int(li[i])):
                 #print([m[1] <= (i+1)//2 for m in movements])
                 #print(len(list(filter(None,[(m[0]*2) <= (i+1)//2 for m in movements]))))
-                driveMap.append((i-2*len(list(filter(None,[m[1] <= (i+1)//2 for m in movements]))))//2+len(list(filter(None,[(m[0]*2) <= (i+1)//2 for m in movements]))))
+                #print(i//2)
+                #print(len(list(filter(None,[((m[1] < (i+1)//2) and (m[0]*2) >= (i)) for m in movements]))))
+                driveMap.append(((i+1)//2-len(list(filter(None,[((m[1] < (i)//2) and ((m[0]*2) >= i)) for m in movements])))))#+#len(list(filter(None,[(m[0]*2) <= (i+1)//2 for m in movements]))))
                 #print(driveMap)
             idnum += 1
     else:
